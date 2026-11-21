@@ -1,0 +1,16 @@
+{
+  "name": "investtrace",
+  "version": "0.1.0",
+  "description": "InvestTrace MVP – wykrywanie powiązań między reklamami inwestycyjnymi a podmiotami finansowymi",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "seed": "node --disable-warning=ExperimentalWarning src/demo.js --reset",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.js\""
+  },
+  "optionalDependencies": {
+    "@anthropic-ai/sdk": "*"
+  }
+}

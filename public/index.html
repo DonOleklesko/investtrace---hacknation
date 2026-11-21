@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InvestTrace</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><circle cx='10' cy='22' r='3.5' fill='white'/><circle cx='22' cy='10' r='3.5' fill='white'/><path d='M10 22L22 10' stroke='white' stroke-width='2.5'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=2">
+  <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#/start" aria-label="InvestTrace – strona główna">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="10" cy="22" r="3.5"/><circle cx="22" cy="10" r="3.5"/><path d="M10 22L22 10"/></svg></span>
+        InvestTrace
+      </a>
+      <nav class="tabs" id="nav" aria-label="Główne menu">
+        <a href="#/start" data-v="start">Start</a>
+        <a href="#/kolejka" data-v="kolejka">Do sprawdzenia <span class="count" id="navCount" hidden></span></a>
+        <a href="#/kampanie" data-v="kampanie">Kampanie</a>
+        <a href="#/mapa" data-v="mapa">Mapa powiązań</a>
+      </nav>
+      <div class="topbar-actions">
+        <form id="searchForm" class="search" role="search">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Szukaj numeru, strony, firmy…" aria-label="Szukaj">
+        </form>
+        <a class="btn btn-primary" href="#/nowa"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Sprawdź reklamę</span></a>
+        <a class="icon-btn" href="#/ustawienia" title="Ustawienia" aria-label="Ustawienia" data-v="ustawienia"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="view" class="page" tabindex="-1"></main>
+
+  <aside id="drawer" class="drawer" aria-hidden="true" aria-label="Szczegóły">
+    <div class="drawer-head">
+      <span class="eyebrow" id="drawerKind">Szczegóły</span>
+      <button class="icon-btn" id="drawerClose" aria-label="Zamknij panel"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
+  <div id="scrim" class="scrim" hidden></div>
+
+  <dialog id="confirm" class="dialog">
+    <form method="dialog">
+      <h3 id="confirmTitle">Na pewno?</h3>
+      <p id="confirmText" class="muted"></p>
+      <div class="dialog-actions">
+        <button value="cancel" class="btn">Anuluj</button>
+        <button value="ok" class="btn btn-primary" id="confirmOk">Tak, potwierdzam</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <footer class="footer">
+    <p>InvestTrace pokazuje <strong>sygnały ostrzegawcze</strong> i powiązania do sprawdzenia. Nie przesądza, że ktoś jest oszustem: decyzję zawsze podejmuje analityk. Dane demo są fikcyjne.</p>
+  </footer>
+
+  <script type="module" src="/app.js?v=2"></script>
+</body>
+</html>

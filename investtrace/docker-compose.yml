@@ -1,0 +1,13 @@
+services:
+  investtrace:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      # Opcjonalnie: klucz do analizy treści przez Claude (bez niego – silnik regułowy)
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    volumes:
+      - investtrace-data:/data
+    restart: unless-stopped
+volumes:
+  investtrace-data:

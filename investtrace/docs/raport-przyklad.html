@@ -1,0 +1,45 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raport InvestTrace – sprawa #1</title>
+<style>
+ body{font:14px/1.5 system-ui,Segoe UI,Arial,sans-serif;color:#1d232b;max-width:900px;margin:24px auto;padding:0 16px;background:#fff}
+ h1{font-size:22px;margin:0 0 4px} h2{font-size:16px;margin:24px 0 8px;border-bottom:1px solid #d8dde3;padding-bottom:4px}
+ .muted{color:#5c6773} .mono{font-family:ui-monospace,Consolas,monospace;font-size:12px;word-break:break-all}
+ .disc{background:#fff6e0;border:1px solid #f0d48a;padding:10px 12px;border-radius:6px;margin:12px 0}
+ .score{display:inline-block;font-size:28px;font-weight:700;padding:4px 12px;border-radius:6px;background:#fde3e1;color:#a3221b}
+ table{border-collapse:collapse;width:100%} td,th{border-bottom:1px solid #e7eaee;padding:6px;text-align:left;vertical-align:top} .num{text-align:right;white-space:nowrap}
+ blockquote{margin:0;padding:8px 12px;background:#f4f6f8;border-left:3px solid #9aa5b1}
+ @media print{.noprint{display:none} body{margin:0}}
+</style></head><body>
+<p class="noprint"><button onclick="print()">Drukuj / zapisz jako PDF</button></p>
+<h1>Raport InvestTrace – sprawa #1</h1>
+<div class="muted">Wygenerowano 21.11.2026, 16:03:30 UTC · Status: <b>W analizie</b> · Analityk: analityk.demo</div>
+<div class="disc"><b>Zastrzeżenie:</b> Raport wskazuje sygnały ryzyka i nie stanowi stwierdzenia popełnienia przestępstwa. Ocena ma charakter pomocniczy i wymaga weryfikacji przez analityka.</div>
+<h2>1. Podsumowanie</h2>
+<p><span class="score">92/100</span> &nbsp; poziom ryzyka: <b>Krytyczny</b> <span class="muted">(suma wag sygnałów: 155 pkt; wynik = 100·(1−e<sup>−pkt/60</sup>))</span></p>
+<p>Reklama #1 na platformie <b>facebook</b>, konto: <b>Finanse Na Luzie</b>, wykryta 12.11.2026, 09:00:00 UTC.</p>
+<blockquote>Zainwestuj 500 zł i zarabiaj nawet 1000 zł tygodniowo! Program polecany przez znanego prezentera Adama Wzorcowego. Tylko dziś ostatnie miejsca!</blockquote>
+<h2>2. Uzasadnienie oceny – sygnały ryzyka</h2>
+<table><tr><th>Sygnał</th><th class="num">Waga</th><th>Dowód / szczegóły</th></tr><tr><td>Podmiot na liście ostrzeżeń (KNF/IOSCO)</td><td class="num">+30</td><td>trade-pro-capital.test – Lista ostrzeżeń publicznych KNF (DEMO) („Trade Pro Capital Ltd.”)</td></tr><tr><td>Podszywanie się pod osobę publiczną, media lub instytucję</td><td class="num">+25</td><td>„Program polecany przez znanego prezentera Adama Wzorcowego.”</td></tr><tr><td>Obietnica gwarantowanego lub wysokiego zysku</td><td class="num">+20</td><td>„Zainwestuj 500 zł i zarabiaj nawet 1000 zł tygodniowo!”</td></tr><tr><td>Oferta usług inwestycyjnych bez licencji regulatora</td><td class="num">+20</td><td>Platforma docelowa trade-pro-capital.test nie figuruje w rejestrze licencji</td></tr><tr><td>Domena młodsza niż 30 dni</td><td class="num">+15</td><td>zysk-dzis24.test zarejestrowana 9 dni przed wykryciem reklamy</td></tr><tr><td>Wspólny telefon/e-mail/tracker z materiałami wysokiego ryzyka</td><td class="num">+15</td><td>tracker FBPIXEL-401928374655 → 13 reklam(y) wysokiego ryzyka; email support@trade-pro-capital.test → 10 reklam(y) wysokiego ryzyka; phone +48000000101 → 13 reklam(y) wysokiego ryzyka</td></tr><tr><td>Presja czasu</td><td class="num">+10</td><td>„Tylko dziś ostatnie miejsca!”</td></tr><tr><td>Zgłoszenia użytkowników dotyczące tych samych danych</td><td class="num">+10</td><td>3 zgłoszeń użytkowników dot. danych z tej ścieżki</td></tr><tr><td>Formularz zbierający telefon przed ujawnieniem oferty</td><td class="num">+5</td><td>Formularz na rejestracja-zysk.test zbiera: imie, telefon, email</td></tr><tr><td>Ukryty WHOIS + hosting offshore</td><td class="num">+5</td><td>zysk-dzis24.test: WHOIS ukryty, hosting Offshore VPS (SC)</td></tr></table>
+<h2>3. Ścieżka inwestora</h2>
+<ol style="list-style:none;padding:0"><li><b>1. sk.test</b> <span class="muted">(start, HTTP 302)</span><br>
+    <span class="mono">https://sk.test/a8F3k</span>
+    
+    
+    </li><li><b>2. zysk-dzis24.test</b> <span class="muted">(http_302, HTTP 200)</span><br>
+    <span class="mono">https://zysk-dzis24.test/artykul/znany-prezenter-zdradza-sekret</span><br>Tytuł: „Znany prezenter zdradza, jak zarabia 1000 zł tygodniowo”
+    
+    <br>Trackery: <span class="mono">FBPIXEL-401928374655</span>
+    </li><li><b>3. rejestracja-zysk.test</b> <span class="muted">(js, HTTP 200)</span><br>
+    <span class="mono">https://rejestracja-zysk.test/form</span><br>Tytuł: „Zarejestruj się – ostatnie miejsca!”
+    <br>Formularz: imie, telefon, email
+    <br>Trackery: <span class="mono">FBPIXEL-401928374655</span>
+    </li><li><b>4. trade-pro-capital.test</b> <span class="muted">(form_submit, HTTP 200)</span><br>
+    <span class="mono">https://trade-pro-capital.test/pl/start</span><br>Tytuł: „Trade Pro Capital – Twoja platforma inwestycyjna”
+    
+    
+    <br>Kontakty: <span class="mono">+48000000101, support@trade-pro-capital.test</span></li></ol>
+<h2>4. Działania analityka</h2><ul><li>21.11.2026, 08:00:00 UTC – analityk.demo: Nowe → W analizie – Sprawdzam powiązania z tpc-invest.test.</li></ul>
+<h2>5. Rejestr dowodów (append-only, SHA-256)</h2>
+<table><tr><th>ID</th><th>Rodzaj</th><th>Powód</th><th>Źródło</th><th>Data</th><th>SHA-256</th></tr><tr><td>#1</td><td>ad_text</td><td>Zapis treści reklamy przy wykryciu</td><td>demo</td><td>12.11.2026, 09:00:00 UTC</td><td class="mono">3c3dde63988bd7ad…</td></tr><tr><td>#2</td><td>ai_scan</td><td>Wykryto 3 sygnałów w treści</td><td>rules</td><td>12.11.2026, 09:00:00 UTC</td><td class="mono">ee6a2e3475124478…</td></tr><tr><td>#3</td><td>redirect_chain</td><td>Ścieżka 4 kroków</td><td>demo</td><td>12.11.2026, 09:00:00 UTC</td><td class="mono">7b64e67efba4eb30…</td></tr></table>
+<p class="muted">Pełna paczka dowodowa (manifest JSON z treścią dowodów): <span class="mono">/api/cases/1/evidence.json</span></p>
+</body></html>
